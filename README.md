@@ -2,4 +2,4 @@
 
   <img src="logo.png" alt="Silent Tor" width="150">
 
-# Silent-Tor
+# Silent Tor
