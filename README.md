@@ -179,16 +179,56 @@ Existing active control-port directives are preserved. If your Tor configuration
 
 Existing Tor runtime data and logs may be copied into the Red Tor state directory during migration. The separate `~/.silent-tor/` settings directory is preserved.
 
+---
+
 ## Disable Login Autostart
 
-The installer enables application startup when the desktop user logs in.
+Red Tor may automatically launch when your Linux desktop starts. If you do not want Red Tor to open automatically after logging in, you can disable its autostart configuration.
 
-To disable it, run this from the extracted project directory:
+### Method 1: Using the Built-in Script
+
+From the extracted project directory, run:
 
 ```bash
 cd red-tor-v1.0.2
 bash disable-autostart.sh
 ```
+
+### Method 2: Manual Removal
+
+If Red Tor still launches automatically, remove its autostart entries manually:
+
+```bash
+# Remove user-level autostart entry
+rm -f ~/.config/autostart/red-tor.desktop
+
+# Remove system-wide autostart entry
+sudo rm -f /etc/xdg/autostart/silent-tor.desktop
+```
+
+### Verify Autostart Removal
+
+Check the remaining user autostart entries:
+
+```bash
+ls -la ~/.config/autostart/
+```
+
+Check whether Red Tor is currently running:
+
+```bash
+ps aux | grep -iE "red-tor|silent-tor"
+```
+
+**Expected Result:**
+
+- Red Tor autostart entries are removed.
+- Red Tor will no longer launch automatically through those entries when logging in.
+- The process check should show no Red Tor process, except the `grep` command itself.
+
+> **Note:** These commands disable the specified autostart entries. They do not uninstall Red Tor or stop the Tor system service. Other autostart configurations, if present, may need to be disabled separately.
+
+---
 
 ## Development & Testing
 
@@ -229,7 +269,7 @@ Please understand these limitations before relying on Red Tor:
 - **Circuit map:** Relay locations are approximate GeoIP estimates, not exact physical server locations or packet routes. Destination geolocation is optional and disabled by default.
 - **Terminal:** The Terminal page provides a real root shell. Commands can modify or delete system files and affect the operating system. Run only commands you understand.
 
-For more information about Tor security, visit the [Official Tor Support](https://support.torproject.org/).
+For more information about Tor security, visit [Official Tor Support](https://support.torproject.org/).
 
 ## License
 
