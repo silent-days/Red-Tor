@@ -1,6 +1,10 @@
-# Red Tor
+ <div align="center">
 
 ![Red Tor logo](assets/logo.png)
+
+# Red Tor
+
+
 
 Red Tor is a desktop interface for a **local Tor service**, designed for **Kali Linux** (Debian family). It is not Tor Browser, does not route or firewall the whole computer, and has not undergone a security audit. Its app connection badge means only that the configured Tor service/SOCKS endpoint passed the app's verification; it is not a guarantee of anonymity.
 
