@@ -508,7 +508,7 @@ See the [`LICENSE`](LICENSE) file for the complete license text.
 # Repository
 
 **GitHub:**  
-         https://github.com/silent-days/Red-Tor
+https://github.com/silent-days/Red-Tor
 
 If you find **Red Tor** useful, consider giving the repository a ⭐ star.
 
